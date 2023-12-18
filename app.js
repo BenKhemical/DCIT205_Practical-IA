@@ -1,14 +1,15 @@
-const createError = require('http-errors');
 const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const logger = require('morgan');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const Patient = require('./models/Patient');
+const Encounter = require('./models/Encounter');
+const Vitals = require('./models/Vitals');
+const Diagnosis = require('./models/Diagnosis');
+
+const patientController = require('./controllers/patientController');
+const encounterController = require('./controllers/encounterController');
+const vitalsController = require('./controllers/vitalsController');
+const diagnosisController = require('./controllers/diagnosisController');
 
 const app = express();
-
-
-
-module.exports = app;
