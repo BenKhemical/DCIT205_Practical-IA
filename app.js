@@ -12,4 +12,17 @@ const encounterController = require('./controllers/encounterController');
 const vitalsController = require('./controllers/vitalsController');
 const diagnosisController = require('./controllers/diagnosisController');
 
+mongoose.connect('mongodb://localhost/healthdb', {useNewUrlParser: true, useUnifiedTopology: true})
+    .then(() => console.log('Connected to MongoDB'))
+    .catch((err) => console.log('Failed to connect to MongoDB', err));
+
+app.use(bodyParser.json());
+
+app.get('/patients', patientController.getPatients);
+app.get('/patients/:id', patientController.getPatientById);
+app.post('/patients', patientController.createPatient);
+app.put('/patients/:id', patientController.updatePatient);
+app.delete('/patients/:id', patientController.deletePatient);
+
+
 const app = express();
