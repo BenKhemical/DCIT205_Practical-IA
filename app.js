@@ -24,5 +24,10 @@ app.post('/patients', patientController.createPatient);
 app.put('/patients/:id', patientController.updatePatient);
 app.delete('/patients/:id', patientController.deletePatient);
 
+app.get('/encounters', encounterController.getEncounters);
+app.get('/encounters/:id', encounterController.getEncounterById);
+app.post('/encounters', encounterController.createEncounter);
+app.put('/encounters/:id', encounterController.updateEncounter);
+app.delete('/encounters/:id', encounterController.deleteEncounter);
 
 const app = express();
